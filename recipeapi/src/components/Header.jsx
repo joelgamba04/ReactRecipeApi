@@ -1,7 +1,11 @@
-export default Header = () => {
+import styles from "./header.module.css";
+
+const Header = () => {
   return (
-    <div>
+    <div className={styles.headerContainer}>
       <h1>Recipe API</h1>
     </div>
   );
 };
+
+export default Header;
