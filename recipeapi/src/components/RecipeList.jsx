@@ -1,6 +1,6 @@
 import RecipeDetail from "./RecipePage.jsx";
 
-const RecipesPage = ({ RecipeData }) => {
+const RecipesPage = ({ RecipeData, setRecipeId }) => {
   return (
     <div>
       <h1>Recipe List</h1>
