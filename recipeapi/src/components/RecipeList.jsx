@@ -1,7 +1,6 @@
-import RecipeData from "../helpers/RecipeData.jsx";
-import RecipeDetail from "./RecipeDetail.jsx";
+import RecipeDetail from "./RecipePage.jsx";
 
-const RecipePage = () => {
+const RecipesPage = ({ RecipeData }) => {
   return (
     <div>
       <h1>Recipe List</h1>
@@ -15,4 +14,4 @@ const RecipePage = () => {
   );
 };
 
-export default RecipePage;
+export default RecipesPage;

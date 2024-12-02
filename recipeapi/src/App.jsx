@@ -1,18 +1,24 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import RecipePage from "./components/RecipeList";
 import CreateRecipe from "./components/CreateRecipe";
 import PageNotFound from "./components/PageNotFound";
+import Container from "../../../RecipeApp/src/components/Container";
+import InnerContainer from "./components/InnerContainer";
+import RecipeData from "./helpers/RecipeData";
+import HomePage from "./components/HomePage";
 
 function App() {
+  const [list, setList] = useState(RecipeData);
+
   return (
     <>
       <Header />
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<RecipePage />} />
+          <Route path="/" element={<HomePage RecipeData={list} />} />
           <Route path="/create" element={<CreateRecipe />} />
 
           <Route path="*" element={<PageNotFound />} />
