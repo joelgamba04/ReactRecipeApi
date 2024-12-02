@@ -7,7 +7,7 @@ const RecipesPage = ({ RecipeData, setRecipeId }) => {
 
       {RecipeData.map((recipe) => (
         <div key={recipe.id}>
-          <RecipeDetail recipe={recipe} />
+          <RecipeDetail recipe={recipe} setRecipeId={setRecipeId} />
         </div>
       ))}
     </div>

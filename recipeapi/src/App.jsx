@@ -4,8 +4,6 @@ import "./App.css";
 import Header from "./components/Header";
 import CreateRecipe from "./components/CreateRecipe";
 import PageNotFound from "./components/PageNotFound";
-import Container from "../../../RecipeApp/src/components/Container";
-import InnerContainer from "./components/InnerContainer";
 import RecipeData from "./helpers/RecipeData";
 import HomePage from "./components/HomePage";
 
