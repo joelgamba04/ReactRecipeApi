@@ -1,12 +1,12 @@
-const RecipeDetail = ({ RecipeData, RecipeId }) => {
+const RecipeDetail = ({ recipeList, RecipeId }) => {
   return (
     <div>
       <h1>Recipe Detail</h1>
 
-      <p>{RecipeData[RecipeId].name}</p>
-      <p>{RecipeData[RecipeId].description}</p>
-      <p>{RecipeData[RecipeId].instructions}</p>
-      <p>{RecipeData[RecipeId].ingredients}</p>
+      <p>{recipeList[RecipeId].name}</p>
+      <p>{recipeList[RecipeId].description}</p>
+      <p>{recipeList[RecipeId].instructions}</p>
+      <p>{recipeList[RecipeId].ingredients}</p>
     </div>
   );
 };

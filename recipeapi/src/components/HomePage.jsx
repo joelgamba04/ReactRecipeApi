@@ -4,11 +4,11 @@ import Container from "./Container";
 import InnerContainer from "./InnerContainer";
 import RecipeDetail from "./RecipeDetailPage";
 
-const HomePage = ({ RecipeData }) => {
+const HomePage = ({ recipeList }) => {
   // const [recipe, setRecipe] = useState({ RecipeData });
   const [recipeId, setRecipeId] = useState(0);
 
-  console.log("Homepage Recipe Data", RecipeData);
+  console.log("Homepage RecipeList", recipeList);
 
   return (
     <div>
@@ -16,11 +16,11 @@ const HomePage = ({ RecipeData }) => {
 
       <Container>
         <InnerContainer>
-          <RecipePage RecipeData={RecipeData} setRecipeId={setRecipeId} />
+          <RecipePage recipeList={recipeList} setRecipeId={setRecipeId} />
         </InnerContainer>
 
         <InnerContainer>
-          <RecipeDetail RecipeData={RecipeData} RecipeId={recipeId} />
+          <RecipeDetail recipeList={recipeList} RecipeId={recipeId} />
         </InnerContainer>
       </Container>
     </div>

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import CreateRecipe from "./components/CreateRecipe";
@@ -7,9 +7,14 @@ import PageNotFound from "./components/PageNotFound";
 import RecipeData from "./helpers/RecipeData";
 import HomePage from "./components/HomePage";
 
-function App() {
-  const [list, setList] = useState(RecipeData);
-  const [newRecipeId, setNewRecipeId] = useState(RecipeData.length);
+const App = () => {
+  const [recipeList, setRecipeList] = useState(RecipeData);
+  const [newRecipeId, setNewRecipeId] = useState(RecipeData.length + 1);
+
+  const addToList = (newRecipe) => {
+    // use previous state to add the new recipe
+    setRecipeList((prevList) => [...prevList, newRecipe]);
+  };
 
   return (
     <>
@@ -17,13 +22,12 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/" element={<HomePage RecipeData={list} />} />
+          <Route path="/" element={<HomePage recipeList={recipeList} />} />
           <Route
             path="/create"
             element={
               <CreateRecipe
-                recipeList={list}
-                setList={setList}
+                addToList={addToList}
                 newRecipeId={newRecipeId}
                 setNewRecipeId={setNewRecipeId}
               />
@@ -35,6 +39,6 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;

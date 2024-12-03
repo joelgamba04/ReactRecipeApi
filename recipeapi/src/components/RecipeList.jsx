@@ -1,11 +1,11 @@
 import RecipeDetail from "./RecipePage.jsx";
 
-const RecipesPage = ({ RecipeData, setRecipeId }) => {
+const RecipesPage = ({ recipeList, setRecipeId }) => {
   return (
     <div>
       <h1>Recipe List</h1>
 
-      {RecipeData.map((recipe) => (
+      {recipeList.map((recipe) => (
         <div key={recipe.id}>
           <RecipeDetail recipe={recipe} setRecipeId={setRecipeId} />
         </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CreateRecipe = ({ recipeList, setList, newRecipeId, setNewRecipeId }) => {
+const CreateRecipe = ({ addToList, newRecipeId, setNewRecipeId }) => {
   const [recipe, setRecipe] = useState({
     id: 0,
     name: "",
@@ -11,45 +11,16 @@ const CreateRecipe = ({ recipeList, setList, newRecipeId, setNewRecipeId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newRecipeId = Number(Math.floor(Math.random() * 1000));
-    const updatedRecipe = { ...recipe, id: newRecipeId };
-    setRecipe({ ...recipe, id: updatedRecipe });
-    // setRecipe((prevState) => ({ ...prevState, id: newRecipeId }));
+    const newRecipe = {
+      ...recipe,
+      id: newRecipeId,
+    };
 
-    setList([...recipeList, recipe]);
+    setNewRecipeId(newRecipeId + 1);
 
-    console.log("Added new recipe", recipe);
-    console.log("Recipe List", recipeList);
-
-    setRecipe({
-      id: 0,
-      name: "",
-      description: "",
-      instructions: "",
-      ingredients: "",
-    });
+    addToList(newRecipe);
   };
-  function handleSubmit1(event) {
-    event.preventDefault();
-    const newId = Number(Math.floor(Math.random() * 1000));
-    console.log("New ID", newId);
-    setRecipe({ ...recipe, id: newId });
-    // Manually add the id
 
-    // setNewRecipeId(newRecipeId + 1);
-
-    setList([...recipeList, recipe]);
-    console.log("Added new recipe", recipe);
-    console.log("Recipe List", recipeList);
-
-    setRecipe({
-      id: 0,
-      name: "",
-      description: "",
-      instructions: "",
-      ingredients: "",
-    });
-  }
   return (
     <div>
       <h1>Create Recipe</h1>
