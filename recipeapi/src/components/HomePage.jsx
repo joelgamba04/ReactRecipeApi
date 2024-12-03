@@ -5,8 +5,10 @@ import InnerContainer from "./InnerContainer";
 import RecipeDetail from "./RecipeDetailPage";
 
 const HomePage = ({ RecipeData }) => {
-  const [recipe, setRecipe] = useState({ RecipeData });
+  // const [recipe, setRecipe] = useState({ RecipeData });
   const [recipeId, setRecipeId] = useState(0);
+
+  console.log("Homepage Recipe Data", RecipeData);
 
   return (
     <div>
