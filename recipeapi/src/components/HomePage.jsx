@@ -4,8 +4,7 @@ import Container from "./Container";
 import InnerContainer from "./InnerContainer";
 import RecipeDetail from "./RecipeDetailPage";
 
-const HomePage = ({ recipeList }) => {
-  // const [recipe, setRecipe] = useState({ RecipeData });
+const HomePage = ({ recipeList, setRecipeList }) => {
   const [recipeId, setRecipeId] = useState(0);
 
   console.log("Homepage RecipeList", recipeList);
@@ -20,7 +19,11 @@ const HomePage = ({ recipeList }) => {
         </InnerContainer>
 
         <InnerContainer>
-          <RecipeDetail recipeList={recipeList} RecipeId={recipeId} />
+          <RecipeDetail
+            recipeList={recipeList}
+            recipeId={recipeId}
+            setRecipeList={setRecipeList}
+          />
         </InnerContainer>
       </Container>
     </div>

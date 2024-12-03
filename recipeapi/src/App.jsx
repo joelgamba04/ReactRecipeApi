@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import CreateRecipe from "./components/CreateRecipe";
@@ -22,7 +22,12 @@ const App = () => {
         <Header />
 
         <Routes>
-          <Route path="/" element={<HomePage recipeList={recipeList} />} />
+          <Route
+            path="/"
+            element={
+              <HomePage recipeList={recipeList} setRecipeList={setRecipeList} />
+            }
+          />
           <Route
             path="/create"
             element={
