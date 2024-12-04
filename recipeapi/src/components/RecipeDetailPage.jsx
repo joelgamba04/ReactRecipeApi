@@ -26,6 +26,11 @@ const RecipeDetail = ({ recipeList, recipeId, setRecipeList }) => {
     );
   };
 
+  const favoriteRecipe = () => {
+    const newRecipeList = recipeList.filter((recipe) => recipe.id !== recipeId);
+    setRecipeList([recipe, ...newRecipeList]);
+  };
+
   const recipe = recipeList.filter((recipe) => recipe.id === recipeId)[0];
   // console.log("RecipeDetail recipe", recipe); // Add this line for debug information
 
@@ -48,6 +53,7 @@ const RecipeDetail = ({ recipeList, recipeId, setRecipeList }) => {
 
       <button onClick={updateRecipe}>Edit Recipe</button>
       <button onClick={deleteRecipe}>Delete Recipe</button>
+      <button onClick={favoriteRecipe}>Make it Favorite</button>
     </div>
   );
 };
