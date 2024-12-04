@@ -12,6 +12,20 @@ const RecipeDetail = ({ recipeList, recipeId, setRecipeList }) => {
     );
   };
 
+  const updateRecipe = () => {
+    const updatedRecipe = {
+      ...recipe,
+      name: prompt("Enter new name:", recipe.name),
+      description: prompt("Enter new description:", recipe.description),
+      instructions: prompt("Enter new instructions:", recipe.instructions),
+      ingredients: prompt("Enter new ingredients:", recipe.ingredients),
+    };
+
+    setRecipeList(
+      recipeList.map((r) => (r.id === recipeId ? updatedRecipe : r))
+    );
+  };
+
   const recipe = recipeList.filter((recipe) => recipe.id === recipeId)[0];
   // console.log("RecipeDetail recipe", recipe); // Add this line for debug information
 
@@ -32,6 +46,7 @@ const RecipeDetail = ({ recipeList, recipeId, setRecipeList }) => {
       <p>{"Instructions: " + recipe.instructions}</p>
       <p>{"Ingredients: " + recipe.ingredients}</p>
 
+      <button onClick={updateRecipe}>Edit Recipe</button>
       <button onClick={deleteRecipe}>Delete Recipe</button>
     </div>
   );
